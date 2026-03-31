@@ -16,6 +16,7 @@ function Navbar({ theme, toggleTheme }) {
   );
 
   const [active, setActive] = useState("home");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const sections = links
@@ -72,7 +73,7 @@ function Navbar({ theme, toggleTheme }) {
 
       <nav className="nav-links">
         {/* PILL GROUP */}
-        <div className="nav-pill">
+        <div className="nav-pill desktop-nav">
           {links.map((l) => (
             <a
               key={l.id}
@@ -85,6 +86,33 @@ function Navbar({ theme, toggleTheme }) {
 
           {/* Theme toggle INSIDE pill */}
           <button className="theme-toggle" onClick={toggleTheme} type="button">
+            {theme === "dark" ? "☀️" : "🌙"}
+          </button>
+        </div>
+
+        <button
+          className="mobile-menu-toggle"
+          type="button"
+          onClick={() => setMenuOpen((prev) => !prev)}
+          aria-expanded={menuOpen}
+          aria-label="Toggle mobile menu"
+        >
+          {menuOpen ? "Close" : "Menu"}
+        </button>
+
+        <div className={`mobile-menu-panel ${menuOpen ? "open" : ""}`}>
+          {links.map((l) => (
+            <a
+              key={`mobile-${l.id}`}
+              href={`#${l.id}`}
+              className={active === l.id ? "active" : ""}
+              onClick={() => setMenuOpen(false)}
+            >
+              {l.label}
+            </a>
+          ))}
+
+          <button className="theme-toggle mobile-theme-toggle" onClick={toggleTheme} type="button">
             {theme === "dark" ? "☀️" : "🌙"}
           </button>
         </div>
