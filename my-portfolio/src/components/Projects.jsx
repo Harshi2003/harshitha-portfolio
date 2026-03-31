@@ -18,7 +18,7 @@ const PROJECTS = [
     description:
       "AI-powered cooking and grocery assistant that uses LLM routing and structured SQL querying to help users explore recipes conversationally, plan healthy meals, and generate smart grocery lists securely.",
     tags: ["Python", "LLMs", "SQL", "Gradio", "Ollama", "DuckDB"],
-    github: "https://github.com/your-github/nourishnow", // TODO: replace
+    github: "https://github.com/Harshi2003",
     image: nourishImg, // ✅ actual imported image
   },
   {
@@ -27,7 +27,7 @@ const PROJECTS = [
     description:
       "Multi-label transformer-based NLP system for real-time detection of toxic comments across six abuse categories, optimized for high accuracy, robustness, and reliable moderation.",
     tags: ["NLP", "Transformers", "BERT", "PyTorch", "Kaggle"],
-    github: "https://github.com/your-github/toxic-comment-detection", // TODO: replace
+    github: "https://github.com/Harshi2003/Toxic-Comment-Detection-for-Online-Platforms-BERT-RNN-",
     image: toxicCommentImg, // keep empty for now
   },
   {
@@ -36,7 +36,7 @@ const PROJECTS = [
     description:
       "Machine learning pipeline that predicts box office revenue and classifies movies as Hit, Flop, or Classic using API-driven metadata, feature engineering, and ensemble models.",
     tags: ["Machine Learning", "XGBoost", "APIs", "Feature Engineering"],
-    github: "https://github.com/your-github/movie-success-prediction", // TODO: replace
+    github: "https://github.com/Harshi2003",
     image: BoxOfficeImg, // keep empty for now
   },
   {
@@ -54,7 +54,7 @@ const PROJECTS = [
     description:
       "Mobile-first roommate discovery platform that helps university students find compatible roommates based on interests, schedules, and housing preferences, with real-time updates and secure authentication.",
     tags: ["Flutter", "Firebase", "Mobile", "Realtime"],
-    github: "https://github.com/your-github/far-from-home", // TODO: replace
+    github: "https://github.com/Harshi2003/Far-From-Home",
     image: FarFromHomeImg, // keep empty for now
   },
 ];

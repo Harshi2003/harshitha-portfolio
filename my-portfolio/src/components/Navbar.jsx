@@ -88,24 +88,6 @@ function Navbar({ theme, toggleTheme }) {
             {theme === "dark" ? "☀️" : "🌙"}
           </button>
         </div>
-
-        {/* RESUME OUTSIDE PILL */}
-        <div className="dropdown resume-standalone">
-          <button className="dropdown-toggle" type="button">
-            Resume ▾
-          </button>
-          <div className="dropdown-menu">
-            <a href="/resume-sde.pdf" target="_blank" rel="noreferrer">
-              SDE
-            </a>
-            <a href="/resume-ai.pdf" target="_blank" rel="noreferrer">
-              AI
-            </a>
-            <a href="/resume-da.pdf" target="_blank" rel="noreferrer">
-              Data Analyst
-            </a>
-          </div>
-        </div>
       </nav>
     </header>
   );

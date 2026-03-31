@@ -7,6 +7,11 @@ function Hero() {
     <section id="home" className="hero">
       <div className="hero-inner">
         <div className="hero-left">
+          <div className="hero-badge">
+            <span className="badge-dot"></span>
+            Available for 2026 new grad roles
+          </div>
+
           <p className="hero-kicker">HI, MY NAME IS</p>
 
           <h1 className="hero-title">
@@ -14,36 +19,40 @@ function Hero() {
           </h1>
 
           <h2 className="hero-tagline">
-            I build intelligent, human-centered AI experiences.
+            I build experiences at the intersection of 
+            <span className="tagline-highlight"> software, AI, and robotics.</span>
           </h2>
 
           <p className="hero-description">
-            I&apos;m a software engineer and AI practitioner specializing in
-            building reliable, human-centered digital experiences across
-            machine learning, computer vision, and full-stack applications.
+            From <span className="accent-text">enterprise-grade AI platforms</span> to 
+            <span className="accent-text"> immersive mobile apps</span> and 
+            <span className="accent-text"> connected hardware</span>, I bring ideas to life 
+            with <span className="accent-bold">thoughtful design</span>, 
+            <span className="accent-bold"> clean engineering</span>, and a 
+            <span className="accent-bold"> collaborative mindset</span>.
           </p>
 
           <div className="hero-buttons">
-            <a href="#contact" className="btn primary">
-              Contact Me
+            <a href="#projects" className="btn primary">
+              View Projects
             </a>
 
             <div className="social-icons-inline">
               <a
-                href="https://github.com/your-github"
+                href="https://github.com/Harshi2003"
                 target="_blank"
                 rel="noreferrer"
               >
                 <FaGithub />
               </a>
               <a
-                href="https://www.linkedin.com/in/your-linkedin"
+                href="https://www.linkedin.com/in/peddisaiharshitha/"
                 target="_blank"
                 rel="noreferrer"
               >
                 <FaLinkedin />
               </a>
-              <a href="mailto:your.email@example.com">
+              <a href="mailto:peddisaiharshitha@gmail.com">
                 <FaEnvelope />
               </a>
             </div>

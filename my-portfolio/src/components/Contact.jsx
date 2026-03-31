@@ -1,6 +1,6 @@
 // src/components/Contact.jsx
 import React, { useState } from "react";
-import { FaGithub, FaLinkedin, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -76,14 +76,9 @@ export default function Contact() {
               <span>peddisaiharshitha@gmail.com</span>
             </a>
 
-            <a className="contact-info-row" href="tel:+14085818263">
-              <FaPhoneAlt className="contact-info-icon" />
-              <span>+1 (408) 581-8263</span>
-            </a>
-
             <div className="contact-info-row">
               <FaMapMarkerAlt className="contact-info-icon" />
-              <span>Morgan Hill, CA</span>
+              <span>San Jose, California</span>
             </div>
           </div>
 
@@ -106,7 +101,7 @@ export default function Contact() {
               {/* Replace with YOUR links */}
               <a
                 className="contact-social-btn"
-                href="https://github.com/YOUR_GITHUB"
+                href="https://github.com/Harshi2003"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="GitHub"
@@ -117,7 +112,7 @@ export default function Contact() {
 
               <a
                 className="contact-social-btn"
-                href="https://www.linkedin.com/in/YOUR_LINKEDIN"
+                href="https://www.linkedin.com/in/peddisaiharshitha/"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="LinkedIn"
