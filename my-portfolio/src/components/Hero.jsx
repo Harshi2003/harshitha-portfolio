@@ -1,5 +1,5 @@
 import React from "react";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaCalendarAlt } from "react-icons/fa";
 import heroPhoto from "../assets/images/harshitha.jpeg";
 
 function Hero() {
@@ -54,6 +54,15 @@ function Hero() {
               </a>
               <a href="mailto:peddisaiharshitha@gmail.com">
                 <FaEnvelope />
+              </a>
+              <a
+                href="https://calendly.com/peddisaiharshitha/30min"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Calendly Meeting"
+                title="Schedule Meeting"
+              >
+                <FaCalendarAlt />
               </a>
             </div>
           </div>

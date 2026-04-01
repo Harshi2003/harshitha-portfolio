@@ -87,7 +87,7 @@ export default function Contact() {
             {/* Replace this with YOUR Calendly link */}
             <a
               className="contact-calendly"
-              href="https://calendly.com/YOUR-CALENDLY-LINK/30min"
+              href="https://calendly.com/peddisaiharshitha/30min"
               target="_blank"
               rel="noreferrer"
             >
