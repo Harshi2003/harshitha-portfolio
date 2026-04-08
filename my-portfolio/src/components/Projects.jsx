@@ -7,11 +7,22 @@ import toxicCommentImg from "../assets/images/projects/toxic comment.png";
 import BoxOfficeImg from "../assets/images/projects/BoxOffice.png";
 import FarFromHomeImg from "../assets/images/projects/FarFromHome.png";
 import AutonomousSystemImg from "../assets/images/projects/AutonomousSystem.png";
+import AgenticThreatCorrelationImg from "../assets/images/projects/AgenticThreatCorrelation.svg";
+import NeuralRenderingDeblurImg from "../assets/images/projects/NeuralRenderingDeblur.svg";
 
 
 
 
 const PROJECTS = [
+  {
+    title: "Agentic AI Threat Correlation Engine",
+    subtitle: "Security Signal Correlation for Faster Incident Response",
+    description:
+      "Built an agentic security correlation engine that ingests and enriches multi-source telemetry, links related alerts into investigation-ready incidents, and improves SOC efficiency by reducing false positives and response time.",
+    tags: ["Python", "SIEM", "SOAR", "Threat Intelligence", "Security Analytics"],
+    github: "https://github.com/Harshi2003",
+    image: AgenticThreatCorrelationImg,
+  },
   {
     title: "NourishNow",
     subtitle: "AI-Powered Cooking & Grocery LLM Assistant",
@@ -20,6 +31,16 @@ const PROJECTS = [
     tags: ["Python", "LLMs", "SQL", "Gradio", "Ollama", "DuckDB"],
     github: "https://github.com/Harshi2003",
     image: nourishImg, // ✅ actual imported image
+  },
+  {
+    title: "Neural Rendering for Image Deblurring and Frame Generation",
+    subtitle: "Neural Methods for Visual Restoration and Synthesis",
+    description:
+      "A deep learning project focused on image deblurring and frame generation using neural rendering techniques to improve visual quality and temporal consistency.",
+    tags: ["Computer Vision", "Deep Learning", "Image Deblurring", "Frame Generation"],
+    github:
+      "https://github.com/bhargava-suryadevara/Neural-Rendering-for-Image-Deblurring-and-Frame-Generation",
+    image: NeuralRenderingDeblurImg,
   },
   {
     title: "Toxic Comment Detection",
@@ -59,7 +80,14 @@ const PROJECTS = [
   },
 ];
 
-function ProjectCard({ title, subtitle, description, tags, github, image }) {
+function ProjectCard({
+  title,
+  subtitle,
+  description,
+  tags,
+  github,
+  image,
+}) {
   return (
     <a
       className="project-card"
