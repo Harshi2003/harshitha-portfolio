@@ -5,6 +5,7 @@ import portraitBlob from "../assets/images/portrait-blob.png";
 import skillsMindmap from "../assets/images/skills-mindmap.png";
 import HomeIcon, { Glyph } from "../components/HomeIcons";
 import ProjectPlaceholder from "../components/ProjectPlaceholder";
+import TechChip from "../components/TechChip";
 
 const featuredProjects = projects.filter((p) => p.featured);
 const featuredExperience = experience.filter((e) => e.featured);
@@ -191,17 +192,15 @@ export default function Home() {
                   {job.time}
                 </span>
               </div>
-              <h3 className="font-display text-lg text-ink mb-1">{job.role}</h3>
-              <p className="text-sm text-ink-soft mb-4">
+              <h3 className="font-display text-2xl text-ink mb-1.5">{job.role}</h3>
+              <p className="font-display text-lg text-ink-soft mb-4">
                 {job.org}
                 {job.place ? ` · ${job.place}` : ""}
               </p>
               <p className="text-sm text-ink-soft leading-relaxed mb-4">{job.summary}</p>
               <div className="flex flex-wrap gap-2">
                 {(job.previewTags || []).map((tag) => (
-                  <span key={tag} className="text-xs text-ink-soft border border-cream-deep rounded-full px-2.5 py-1">
-                    {tag}
-                  </span>
+                  <TechChip key={tag} label={tag} size="sm" />
                 ))}
               </div>
             </motion.div>
@@ -272,9 +271,7 @@ export default function Home() {
                   <p className="text-sm text-ink-soft mb-4 flex-1 line-clamp-2">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-3">
                     {project.tags.slice(0, 4).map((tag) => (
-                      <span key={tag} className="text-xs text-ink-soft border border-cream-deep rounded-full px-2.5 py-1">
-                        {tag}
-                      </span>
+                      <TechChip key={tag} label={tag} size="sm" />
                     ))}
                   </div>
                   <span className="text-sm font-semibold text-coral-deep group-hover:text-coral transition-colors">

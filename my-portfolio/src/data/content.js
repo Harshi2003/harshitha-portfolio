@@ -140,10 +140,26 @@ export const research = [
     org: "San Jose State University",
     focus: "Recommender Systems",
     time: "May 2025 – Present",
+    badgeIcon: "flask",
+    accent: "coral",
+    problem:
+      "Classic collaborative filtering gets slower and more resource-hungry as interaction data grows, especially for real-time recommendation.",
+    approach:
+      "I explored exact similarity search using quantization and bit-sliced vector compression instead of approximate methods.",
+    methodology: [
+      "Represented the utility matrix as compressed bit-vectors using quantization and Hamming distance.",
+      "Benchmarked against Alternating Least Squares and LightGCN across four datasets (Gowalla, Yelp2018, Amazon-book, Movielens1M).",
+      "Designed a priority-queue-based nearest-neighbor cache so re-training only touches affected users and items.",
+    ],
+    findings: [
+      "Cut Amazon-book training time from 833 minutes to 3 minutes, 157x to 277x faster than LightGCN.",
+      "Reduced test-time memory footprint from 421MB to 80MB using compressed bit-vectors that fit inside CPU cache.",
+      "Kept Precision@20, Recall@20, and NDCG@20 comparable to baseline methods despite the speedup.",
+    ],
     points: [
       "Built ARES, a Collaborative Filtering recommender that uses quantization, bit-sliced vector compression, and Hamming distance for exact similarity search instead of approximate methods.",
       "Evaluated across four benchmark datasets (Gowalla, Yelp2018, Amazon-book, Movielens1M, up to 2.98M interactions) against Alternating Least Squares and LightGCN baselines.",
-      "Cut Amazon-book training time from 833 minutes to 3 minutes — 157x–277x faster than LightGCN — while keeping Precision@20, Recall@20, and NDCG@20 comparable.",
+      "Cut Amazon-book training time from 833 minutes to 3 minutes, 157x to 277x faster than LightGCN, while keeping Precision@20, Recall@20, and NDCG@20 comparable.",
       "Reduced test-time memory footprint from 421MB to 80MB by operating on compressed bit-vectors that fit inside CPU cache, using a hybrid compression scheme that only compresses bit-vectors below a density threshold.",
       "Designed a priority-queue-based nearest-neighbor cache so re-training after new interactions only touches affected users/items instead of the full utility matrix.",
     ],
@@ -153,6 +169,22 @@ export const research = [
     org: "Amrita Vishwa Vidyapeetham",
     focus: "AI & Deep Learning",
     time: "Jan 2024 – May 2024",
+    badgeIcon: "flask",
+    accent: "teal",
+    problem:
+      "Speech emotion recognition models often struggle to generalize across different speakers and recording conditions.",
+    approach:
+      "I designed CNN-BLSTM-Attention and CNN-Transformer architectures using Mel-spectrogram features and data augmentation.",
+    methodology: [
+      "Extracted Mel-spectrogram features from speech audio as model input.",
+      "Applied AWGN data augmentation to improve generalization and reduce overfitting.",
+      "Compared CNN-BLSTM-Attention against CNN-Transformer architectures.",
+    ],
+    findings: [
+      "Reached 89.33% accuracy with CNN-Transformer, outperforming baseline models.",
+      "Reached 85.67% accuracy with CNN-BLSTM-Attention.",
+      "Attention mechanisms captured spatial and temporal speech patterns effectively.",
+    ],
     points: [
       "Designed deep learning models (CNN-BLSTM-Attention, CNN-Transformer) for emotion classification using Mel-spectrogram features.",
       "Applied data augmentation (AWGN) to improve model generalization and reduce overfitting.",
@@ -165,6 +197,20 @@ export const research = [
     org: "Amrita Vishwa Vidyapeetham",
     focus: "EEG & Signal Processing",
     time: "Mar 2023 – Feb 2024",
+    badgeIcon: "flask",
+    accent: "amber",
+    problem:
+      "High-dimensional, multichannel EEG and audio time-series data needed reliable preprocessing before it could be used in downstream models.",
+    approach:
+      "I built preprocessing and feature engineering pipelines tailored to large-scale EEG and audio signal datasets.",
+    methodology: [
+      "Worked with large-scale, multichannel EEG and audio signal datasets.",
+      "Built preprocessing pipelines to clean and structure high-dimensional time-series data.",
+      "Engineered features suitable for downstream modeling.",
+    ],
+    findings: [
+      "Delivered clean, structured signal pipelines that downstream models could reliably use.",
+    ],
     points: [
       "Worked extensively with large-scale EEG and audio signal datasets, building robust preprocessing and feature engineering pipelines for high-dimensional, multichannel time-series data.",
     ],
@@ -175,13 +221,69 @@ export const experience = [
   {
     role: "Full Stack Software Engineer",
     org: "Stealth AI Startup",
-    place: "San Francisco Bay Area",
+    place: "San Francisco, CA",
     time: "Mar 2026 – Present",
     color: "coral",
     featured: true,
+    current: true,
+    badgeIcon: "rocket",
     summary:
       "Building full-stack, agentic AI features for a fast-moving product team, from backend workflows to the interface people use every day.",
     previewTags: ["LangGraph", "RAG", "TypeScript", "Cross-Functional Collaboration"],
+    situation:
+      "Operations teams needed to handle booking, refund, and policy questions without pulling in engineers for routine requests.",
+    myRole:
+      "I designed and built full-stack, agentic AI features used daily by real operations users.",
+    keyPoints: [
+      "Built full-stack features (React, Node.js, PostgreSQL) used by 45+ daily active users.",
+      "Shipped production RAG and agentic workflows with LangGraph for booking, refund, and policy handling.",
+      "Cut multi-agent response latency from 8s to 5s through execution profiling and parallelization.",
+      "Used AI-native tools (Claude Code, Cursor, Copilot) alongside TDD and code review for reliable delivery.",
+    ],
+    builtPoints: [
+      "A self-serve booking, refund, and policy workflow system used by 45+ daily operations users.",
+      "An agentic assistant that retrieves context, calls the right tools, and escalates to a human when needed.",
+      "Automated resolution paths for common operational questions, replacing manual lookups.",
+      "A faster multi-agent response pipeline through parallelized tool calls.",
+      "A validation and regression testing layer that catches failures before every release.",
+    ],
+    challenges: [
+      "Making agent decisions predictable enough to trust in production, not just accurate in testing.",
+      "Handling edge cases where a workflow needed to safely hand off to a human instead of guessing.",
+      "Keeping latency low while still running multiple tool calls per request.",
+      "Shipping fast in a small team without skipping tests, reviews, or rollback plans.",
+      "Working with fast-changing requirements typical of an early-stage startup.",
+    ],
+    impactStats: [
+      { value: "45+", label: "Daily active users" },
+      { value: "8s → 5s", label: "Latency improvement" },
+      { value: "40%", label: "Fewer user-reported issues" },
+      { value: "30%", label: "Less manual lookup work" },
+    ],
+    techStack: [
+      "TypeScript",
+      "Node.js",
+      "React",
+      "PostgreSQL",
+      "GraphQL",
+      "LangGraph",
+      "RAG",
+      "Anthropic",
+      "Claude Code",
+      "Cursor",
+      "Codex",
+      "GitHub Copilot",
+      "Redis",
+      "Docker",
+      "AWS",
+      "Vercel",
+      "Sentry",
+      "Zod",
+      "Temporal",
+      "Cross-Functional Collaboration",
+      "Ownership",
+      "Technical Communication",
+    ],
     points: [
       "Built and shipped production TypeScript, Node.js, React, PostgreSQL, REST API, GraphQL, and WebSocket features so 45+ daily operations users could complete booking, cancellation, refund, policy, and escalation workflows without routine engineering support.",
       "Shipped production RAG and agentic workflows with LangGraph, retrieval, structured outputs, deterministic routing, tool calling, retries, fallbacks, and human escalation paths for booking, refund, policy, and exception handling workflows.",
@@ -198,9 +300,46 @@ export const experience = [
     time: "Mar 2025 – Mar 2026",
     color: "amber",
     featured: true,
+    badgeText: "SJSU",
     summary:
       "Led research on an AI assistant that helps security teams investigate incidents faster, balancing model autonomy with careful human oversight.",
     previewTags: ["FastAPI", "Neo4j", "Security Research", "Technical Communication"],
+    situation:
+      "Security teams needed to investigate incidents faster without losing traceability over what an AI assistant was actually doing.",
+    myRole:
+      "I led research on an evidence-grounded agentic SOC assistant, balancing model autonomy with careful human oversight.",
+    keyPoints: [
+      "Built an evidence-grounded SOC assistant with FastAPI and Neo4j, hitting 98% detection and incident success.",
+      "Designed uncertainty controls (confidence thresholds, audit logging, human review) for traceable decisions.",
+      "Got mean detection latency down to 17.7 seconds through repeatable evaluation pipelines.",
+      "Refactored experimental agent workflows into maintainable backend services with structured logging.",
+    ],
+    builtPoints: [
+      "An evidence-grounded SOC assistant that investigates security incidents and cites its sources.",
+      "Confidence thresholds and audit logging so every automated decision stays traceable.",
+      "A repeatable evaluation pipeline for measuring detection quality and latency.",
+      "A refactored, maintainable backend service out of an experimental research prototype.",
+    ],
+    challenges: [
+      "Deciding when the model should act on its own versus defer to a human reviewer.",
+      "Keeping detections explainable enough for a security analyst to trust and verify.",
+      "Evaluating groundedness and detection quality without a fixed, labeled dataset.",
+      "Turning a research prototype into a maintainable, production-ready service.",
+    ],
+    impactStats: [
+      { value: "98%", label: "Detection & incident success" },
+      { value: "17.7s", label: "Mean detection latency" },
+      { value: "<10ms", label: "Deterministic processing" },
+    ],
+    techStack: [
+      "FastAPI",
+      "Neo4j",
+      "Python",
+      "Java",
+      "Security Research",
+      "Technical Communication",
+      "Research Communication",
+    ],
     points: [
       "Built an evidence-grounded agentic SOC assistant using FastAPI, Neo4j, retrieval, deterministic event correlation, structured verification, confidence thresholds, and human review to keep security decisions traceable and reviewable.",
       "Built Python and Java backend services achieving 98% detection and incident success with FastAPI, Neo4j, structured event correlation, retrieval, deterministic verification, automated tests, and human review across incomplete and noisy inputs.",
@@ -216,6 +355,42 @@ export const experience = [
     place: "Hyderabad, India",
     time: "Apr 2022 – Sep 2024",
     color: "teal",
+    badgeText: "AV",
+    situation:
+      "Manual document workflows were slow, inconsistent, and heavy on human intervention at a scale of 10,000+ documents a day.",
+    myRole:
+      "I built and optimized backend data workflows spanning ingestion, validation, transformation, and downstream integration.",
+    keyPoints: [
+      "Built backend workflows processing 10,000+ documents a day.",
+      "Increased processing throughput to 200 documents per minute.",
+      "Cut manual intervention by 60% through automated validation and recovery workflows.",
+      "Resolved production defects through root cause analysis and regression testing.",
+    ],
+    builtPoints: [
+      "Backend workflows that ingest, validate, and transform 10,000+ documents a day.",
+      "A scanned and mobile-capture accuracy pipeline for noisy, real-world inputs.",
+      "Automated recovery workflows that cut manual intervention significantly.",
+      "Root-cause analysis tooling that traced failures back to their source.",
+    ],
+    challenges: [
+      "Handling wildly inconsistent input quality across scanned and mobile-captured documents.",
+      "Keeping a high-throughput pipeline reliable without slowing down under real production load.",
+      "Reducing manual intervention without silently letting bad data through.",
+      "Diagnosing intermittent production failures across a multi-stage batch pipeline.",
+    ],
+    impactStats: [
+      { value: "10,000+", label: "Documents/day processed" },
+      { value: "200/min", label: "Peak throughput" },
+      { value: "60%", label: "Less manual intervention" },
+      { value: "40%", label: "Less admin effort" },
+    ],
+    techStack: [
+      "Python",
+      "Java",
+      "Cross-Functional Collaboration",
+      "Process Improvement",
+      "Stakeholder Communication",
+    ],
     points: [
       "Built Python and Java backend data workflows supporting 10,000+ documents with explicit interfaces, reusable processing logic, validation, transformation, exception handling, monitoring, and downstream system integration.",
       "Increased processing throughput to 200 documents per minute by profiling bottlenecks, redesigning batch execution, refining processing logic, and optimizing data movement across dependent services.",

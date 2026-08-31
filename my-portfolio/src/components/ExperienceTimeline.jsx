@@ -1,0 +1,210 @@
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Glyph } from "./HomeIcons";
+import TechChip from "./TechChip";
+
+function RoleBadge({ role, active }) {
+  const size = active ? 40 : 32;
+  if (role.badgeIcon) {
+    return (
+      <span
+        className="inline-flex items-center justify-center rounded-xl bg-ink text-cream shrink-0"
+        style={{ width: size, height: size }}
+      >
+        <Glyph name={role.badgeIcon} className="text-lg" />
+      </span>
+    );
+  }
+  const bg = { coral: "bg-coral", amber: "bg-amber", teal: "bg-teal" }[role.color] || "bg-coral";
+  return (
+    <span
+      className={`inline-flex items-center justify-center rounded-xl text-cream font-display font-semibold shrink-0 ${bg}`}
+      style={{ width: size, height: size, fontSize: active ? 11 : 9 }}
+    >
+      {role.badgeText}
+    </span>
+  );
+}
+
+const TABS = [
+  { key: "overview", label: "Overview" },
+  { key: "built", label: "What I Built" },
+  { key: "challenge", label: "The Challenge" },
+  { key: "stack", label: "Tech Stack" },
+];
+
+export default function ExperienceTimeline({ roles }) {
+  const [selected, setSelected] = useState(0);
+  const [tab, setTab] = useState("overview");
+  const role = roles[selected];
+
+  return (
+    <div className="grid md:grid-cols-[280px_1fr] gap-6 md:gap-8">
+      {/* Role list */}
+      <div className="relative pl-2">
+        <div className="absolute left-[21px] top-4 bottom-4 w-px border-l-2 border-dashed border-cream-deep" />
+        <div className="flex flex-col gap-3">
+          {roles.map((r, i) => {
+            const isActive = i === selected;
+            return (
+              <button
+                key={r.role + r.time}
+                type="button"
+                onClick={() => {
+                  setSelected(i);
+                  setTab("overview");
+                }}
+                className={`relative flex items-center gap-3 text-left rounded-2xl border p-3 transition-colors ${
+                  isActive
+                    ? "bg-cream-deep/50 border-coral shadow-sm"
+                    : "bg-transparent border-transparent hover:bg-cream-deep/30"
+                }`}
+              >
+                <RoleBadge role={r} active={isActive} />
+                <span className="flex-1 min-w-0">
+                  <span className="flex items-center gap-2">
+                    <span className={`font-display text-sm truncate ${isActive ? "text-coral-deep" : "text-ink"}`}>
+                      {r.org}
+                    </span>
+                    {r.current && (
+                      <span className="text-[10px] font-semibold uppercase tracking-wide text-coral-deep bg-coral/15 border border-coral/30 rounded-full px-1.5 py-0.5 shrink-0">
+                        Current
+                      </span>
+                    )}
+                  </span>
+                  <span className="block text-xs text-ink-soft truncate">{r.role}</span>
+                  <span className="block text-xs text-ink-soft/70">{r.time}</span>
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Detail panel */}
+      <div className="rounded-2xl bg-cream-deep/30 border border-cream-deep p-6 md:p-8">
+        <motion.div key={selected} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}>
+          <p className="font-display text-2xl text-ink mb-1">{role.org}</p>
+          <p className="text-coral-deep font-semibold mb-3">{role.role}</p>
+
+          <div className="flex flex-wrap items-center gap-4 mb-6 text-sm text-ink-soft">
+            <span className="inline-flex items-center gap-1.5">
+              <Glyph name="calendar" className="text-base" /> {role.time}
+            </span>
+            {role.place && (
+              <span className="inline-flex items-center gap-1.5">
+                <Glyph name="pin" className="text-base" /> {role.place}
+              </span>
+            )}
+            {role.current && (
+              <span className="text-xs font-semibold uppercase tracking-wide text-coral-deep bg-coral/15 border border-coral/30 rounded-full px-2.5 py-1">
+                Current
+              </span>
+            )}
+          </div>
+
+          <div className="flex gap-6 border-b border-cream-deep mb-6 overflow-x-auto">
+            {TABS.map((t) => (
+              <button
+                key={t.key}
+                type="button"
+                onClick={() => setTab(t.key)}
+                className={`pb-3 text-sm font-semibold tracking-wide border-b-2 whitespace-nowrap transition-colors ${
+                  tab === t.key ? "border-coral text-ink" : "border-transparent text-ink-soft hover:text-ink"
+                }`}
+              >
+                {t.label}
+              </button>
+            ))}
+          </div>
+
+          <motion.div key={tab} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.2 }}>
+            {tab === "overview" && (
+              <div>
+                <div className="grid sm:grid-cols-2 gap-6 mb-6">
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-coral-deep mb-1.5">
+                      The Situation
+                    </p>
+                    <p className="text-sm text-ink-soft leading-relaxed">{role.situation}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-teal mb-1.5">My Role</p>
+                    <p className="text-sm text-ink-soft leading-relaxed">{role.myRole}</p>
+                  </div>
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="rounded-2xl border border-cream-deep p-5">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-ink-soft mb-3">
+                      Key Contributions
+                    </p>
+                    <ul className="space-y-2">
+                      {(role.keyPoints || []).map((point, i) => (
+                        <li key={i} className="flex gap-2 text-sm text-ink-soft leading-relaxed">
+                          <span className="text-teal shrink-0 mt-0.5">✓</span>
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="rounded-2xl bg-coral/10 border border-coral/20 p-5">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-coral-deep mb-3">The Impact</p>
+                    <div className="flex flex-col gap-3">
+                      {(role.impactStats || []).slice(0, 3).map((stat) => (
+                        <div key={stat.label} className="flex items-baseline gap-2">
+                          <span className="font-display text-2xl text-coral-deep">{stat.value}</span>
+                          <span className="text-xs text-ink-soft">{stat.label}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {tab === "built" && (
+              <div className="relative pl-5">
+                <div className="absolute left-0 top-1 bottom-1 border-l-2 border-dashed border-cream-deep" />
+                <ul className="space-y-3">
+                  {(role.builtPoints || role.points).map((point, i) => (
+                    <li key={i} className="flex gap-2.5 text-sm text-ink-soft leading-relaxed">
+                      <span className="text-teal shrink-0 mt-0.5">✓</span>
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {tab === "challenge" && (
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wide text-coral-deep mb-3">The Challenge</p>
+                {role.challenges ? (
+                  <ul className="space-y-2.5 max-w-xl">
+                    {role.challenges.map((c, i) => (
+                      <li key={i} className="flex gap-2.5 text-sm text-ink-soft leading-relaxed">
+                        <span className="text-coral shrink-0 mt-0.5">•</span>
+                        <span>{c}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-sm text-ink-soft leading-relaxed max-w-xl">{role.challenge}</p>
+                )}
+              </div>
+            )}
+
+            {tab === "stack" && (
+              <div className="flex flex-wrap gap-2.5">
+                {(role.techStack || []).map((tech) => (
+                  <TechChip key={tech} label={tech} size="md" />
+                ))}
+              </div>
+            )}
+          </motion.div>
+        </motion.div>
+      </div>
+    </div>
+  );
+}

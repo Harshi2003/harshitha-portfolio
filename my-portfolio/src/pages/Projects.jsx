@@ -1,15 +1,40 @@
 import { motion } from "framer-motion";
 import { projects } from "../data/content";
 import ProjectPlaceholder from "../components/ProjectPlaceholder";
+import TechChip from "../components/TechChip";
+import coffeeNote from "../assets/images/coffee-code-curiosity.png";
 
 export default function Projects() {
   return (
     <section className="max-w-6xl mx-auto py-12 md:py-16">
-      <h1 className="font-display text-4xl md:text-5xl text-ink mb-3">Things I've built</h1>
-      <p className="text-ink-soft text-lg mb-12 max-w-xl">
-        A mix of research, side projects, and things that started as a weekend idea and did not
-        stay that way.
-      </p>
+      <div className="md:flex md:items-center md:justify-between md:gap-10 mb-8 md:mb-14">
+        <div>
+          <h1 className="font-display text-4xl md:text-5xl text-ink mb-3">Things I've built</h1>
+          <p className="text-ink-soft text-lg max-w-xl">
+            A mix of research, side projects, and things that started as a weekend idea and did
+            not stay that way.
+          </p>
+        </div>
+
+        <motion.img
+          src={coffeeNote}
+          alt="Sticker: Fueled by coffee, code & curiosity!"
+          initial={{ opacity: 0, y: 8, rotate: 0 }}
+          animate={{ opacity: 1, y: 0, rotate: -3 }}
+          whileHover={{ rotate: 0, scale: 1.03 }}
+          transition={{ duration: 0.5 }}
+          className="hidden md:block w-72 lg:w-80 shrink-0 mix-blend-multiply"
+        />
+      </div>
+
+      <motion.img
+        src={coffeeNote}
+        alt="Sticker: Fueled by coffee, code & curiosity!"
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="md:hidden w-56 -rotate-2 mix-blend-multiply mb-10"
+      />
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project, i) => (
@@ -48,12 +73,7 @@ export default function Projects() {
               </p>
               <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-xs text-ink-soft border border-cream-deep rounded-full px-2.5 py-1"
-                  >
-                    {tag}
-                  </span>
+                  <TechChip key={tag} label={tag} size="sm" />
                 ))}
               </div>
             </div>

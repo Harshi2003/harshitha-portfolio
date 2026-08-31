@@ -1,4 +1,39 @@
 const PATHS = {
+  calendar: (
+    <>
+      <rect x="7" y="10" width="30" height="26" rx="3" fill="none" stroke="currentColor" strokeWidth="2" />
+      <line x1="7" y1="18" x2="37" y2="18" stroke="currentColor" strokeWidth="2" />
+      <line x1="14" y1="6" x2="14" y2="13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+      <line x1="30" y1="6" x2="30" y2="13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    </>
+  ),
+  pin: (
+    <>
+      <path
+        d="M22 5 C13 5 8 12 8 19 C8 29 22 39 22 39 C22 39 36 29 36 19 C36 12 31 5 22 5 Z"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinejoin="round"
+      />
+      <circle cx="22" cy="19" r="5" fill="none" stroke="currentColor" strokeWidth="2" />
+    </>
+  ),
+  flask: (
+    <>
+      <path
+        d="M17 6 H27 V16 L34 33 C35.5 36.5 33 40 29 40 H15 C11 40 8.5 36.5 10 33 L17 16 Z"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinejoin="round"
+      />
+      <line x1="15" y1="6" x2="29" y2="6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+      <path d="M13 29 H31" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+      <circle cx="19" cy="34" r="1.6" fill="currentColor" />
+      <circle cx="25" cy="35.5" r="1.2" fill="currentColor" />
+    </>
+  ),
   leaf: (
     <path
       d="M11 33 C11 17 25 9 37 11 C37 25 27 35 15 34 C13 34 12 33.5 11 33 Z M13 33 L28 16"
