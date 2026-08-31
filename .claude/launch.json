@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "my-portfolio",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "my-portfolio"],
+      "port": 5173
+    },
+    {
+      "name": "zip-portfolio",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "C:/Users/peddi/AppData/Local/Temp/claude/C--Users-peddi-OneDrive-Desktop-portofolio-harshi-website/4b4a3076-d22a-4780-a6a6-8f8ff600d450/scratchpad/harshi-portfolio-zip/portfolio"],
+      "port": 5174
+    }
+  ]
+}
