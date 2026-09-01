@@ -134,13 +134,13 @@ export default function ExperienceTimeline({ roles }) {
                   </div>
                 </div>
 
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div className="rounded-2xl border border-cream-deep p-5">
+                <div className="grid sm:grid-cols-5 gap-4">
+                  <div className="sm:col-span-2 rounded-2xl border border-cream-deep p-5">
                     <p className="text-xs font-semibold uppercase tracking-wide text-ink-soft mb-3">
                       Key Contributions
                     </p>
                     <ul className="space-y-2">
-                      {(role.keyPoints || []).map((point, i) => (
+                      {(role.builtPoints || []).map((point, i) => (
                         <li key={i} className="flex gap-2 text-sm text-ink-soft leading-relaxed">
                           <span className="text-teal shrink-0 mt-0.5">✓</span>
                           <span>{point}</span>
@@ -148,13 +148,13 @@ export default function ExperienceTimeline({ roles }) {
                       ))}
                     </ul>
                   </div>
-                  <div className="rounded-2xl bg-coral/10 border border-coral/20 p-5">
-                    <p className="text-xs font-semibold uppercase tracking-wide text-coral-deep mb-3">The Impact</p>
-                    <div className="flex flex-col gap-3">
-                      {(role.impactStats || []).slice(0, 3).map((stat) => (
-                        <div key={stat.label} className="flex items-baseline gap-2">
-                          <span className="font-display text-2xl text-coral-deep">{stat.value}</span>
-                          <span className="text-xs text-ink-soft">{stat.label}</span>
+                  <div className="sm:col-span-3 rounded-2xl bg-coral/10 border border-coral/20 p-5">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-coral-deep mb-4">The Impact</p>
+                    <div className="grid grid-cols-2 gap-x-6 gap-y-5">
+                      {(role.impactStats || []).map((stat) => (
+                        <div key={stat.label}>
+                          <p className="font-display text-3xl text-coral-deep leading-tight">{stat.value}</p>
+                          <p className="text-xs text-ink-soft mt-1">{stat.label}</p>
                         </div>
                       ))}
                     </div>
@@ -167,7 +167,7 @@ export default function ExperienceTimeline({ roles }) {
               <div className="relative pl-5">
                 <div className="absolute left-0 top-1 bottom-1 border-l-2 border-dashed border-cream-deep" />
                 <ul className="space-y-3">
-                  {(role.builtPoints || role.points).map((point, i) => (
+                  {role.points.map((point, i) => (
                     <li key={i} className="flex gap-2.5 text-sm text-ink-soft leading-relaxed">
                       <span className="text-teal shrink-0 mt-0.5">✓</span>
                       <span>{point}</span>
@@ -181,7 +181,7 @@ export default function ExperienceTimeline({ roles }) {
               <div>
                 <p className="text-xs font-semibold uppercase tracking-wide text-coral-deep mb-3">The Challenge</p>
                 {role.challenges ? (
-                  <ul className="space-y-2.5 max-w-xl">
+                  <ul className="space-y-2.5">
                     {role.challenges.map((c, i) => (
                       <li key={i} className="flex gap-2.5 text-sm text-ink-soft leading-relaxed">
                         <span className="text-coral shrink-0 mt-0.5">•</span>
@@ -190,7 +190,7 @@ export default function ExperienceTimeline({ roles }) {
                     ))}
                   </ul>
                 ) : (
-                  <p className="text-sm text-ink-soft leading-relaxed max-w-xl">{role.challenge}</p>
+                  <p className="text-sm text-ink-soft leading-relaxed">{role.challenge}</p>
                 )}
               </div>
             )}

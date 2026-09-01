@@ -5,6 +5,8 @@ import ExperienceTimeline from "../components/ExperienceTimeline";
 import ResearchTimeline from "../components/ResearchTimeline";
 import expMobileSummary from "../assets/images/exp_mobile_summary.png";
 import expDesktopSummary from "../assets/images/exp_desktop_summary.png";
+import whatIBringMobile from "../assets/images/what-i-bring-mobile.png";
+import whatIBringDesktop from "../assets/images/what-i-bring-desktop.png";
 
 export default function Experience() {
   return (
@@ -57,6 +59,25 @@ export default function Experience() {
         <h2 className="font-display text-3xl text-ink mb-8">Professional</h2>
         <ExperienceTimeline roles={experience} />
       </section>
+
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.5 }}
+        className="max-w-6xl mx-auto mb-16 px-2"
+      >
+        <img
+          src={whatIBringMobile}
+          alt="What I bring to the table: problem solver, ownership, collaborator, impact driven, always learning"
+          className="md:hidden w-full max-w-sm mx-auto"
+        />
+        <img
+          src={whatIBringDesktop}
+          alt="What I bring to the table: problem solver, ownership, collaborator, impact driven, always learning"
+          className="hidden md:block w-full"
+        />
+      </motion.div>
 
       <section className="max-w-3xl mx-auto">
         <div className="mb-8">

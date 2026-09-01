@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Glyph } from "./HomeIcons";
+import CompressGame from "./CompressGame";
 
-const TABS = [
+const BASE_TABS = [
   { key: "overview", label: "Overview" },
   { key: "methodology", label: "Methodology" },
   { key: "findings", label: "Findings" },
@@ -12,6 +13,7 @@ export default function ResearchTimeline({ items }) {
   const [selected, setSelected] = useState(0);
   const [tab, setTab] = useState("overview");
   const item = items[selected];
+  const tabs = item.interactive === "compress" ? [...BASE_TABS, { key: "try", label: "Try It ⚡" }] : BASE_TABS;
 
   return (
     <div className="grid md:grid-cols-[280px_1fr] gap-6 md:gap-8">
@@ -70,7 +72,7 @@ export default function ResearchTimeline({ items }) {
           </div>
 
           <div className="flex gap-6 border-b border-cream-deep mb-6 overflow-x-auto">
-            {TABS.map((t) => (
+            {tabs.map((t) => (
               <button
                 key={t.key}
                 type="button"
@@ -138,6 +140,8 @@ export default function ResearchTimeline({ items }) {
                 ))}
               </ul>
             )}
+
+            {tab === "try" && item.interactive === "compress" && <CompressGame />}
           </motion.div>
         </motion.div>
       </div>

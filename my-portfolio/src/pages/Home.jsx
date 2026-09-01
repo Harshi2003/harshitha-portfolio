@@ -6,6 +6,7 @@ import skillsMindmap from "../assets/images/skills-mindmap.png";
 import HomeIcon, { Glyph } from "../components/HomeIcons";
 import ProjectPlaceholder from "../components/ProjectPlaceholder";
 import TechChip from "../components/TechChip";
+import CoffeeMeter from "../components/CoffeeMeter";
 
 const featuredProjects = projects.filter((p) => p.featured);
 const featuredExperience = experience.filter((e) => e.featured);
@@ -40,6 +41,8 @@ function SectionHeading({ title, to, label }) {
 export default function Home() {
   return (
     <div className="max-w-5xl mx-auto py-12 md:py-20">
+      <CoffeeMeter />
+
       {/* Hero */}
       <section className="relative max-w-4xl mb-20">
         <Bubble className="bg-teal/10 -right-6 top-4 hidden md:block" size={70} duration={7} />
