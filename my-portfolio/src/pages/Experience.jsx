@@ -49,11 +49,13 @@ export default function Experience() {
         <img
           src={whatIBringMobile}
           alt="What I bring to the table: problem solver, ownership, collaborator, impact driven, always learning"
+          loading="lazy"
           className="md:hidden w-full max-w-sm mx-auto"
         />
         <img
           src={whatIBringDesktop}
           alt="What I bring to the table: problem solver, ownership, collaborator, impact driven, always learning"
+          loading="lazy"
           className="hidden md:block w-full"
         />
       </motion.div>

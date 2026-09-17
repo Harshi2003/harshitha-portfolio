@@ -902,7 +902,7 @@ export default function AppMockup() {
       className="relative py-8 lg:py-10 px-4 md:px-8 mb-2 rounded-3xl overflow-hidden"
     >
       <div className="absolute inset-0 rounded-3xl overflow-hidden" style={{ background: `${AN.sand}40` }} aria-hidden="true">
-        <img src={worldMap} alt="" className="absolute inset-0 w-full h-full object-cover opacity-45" />
+        <img src={worldMap} alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover opacity-45" />
       </div>
 
       <div className="relative grid lg:grid-cols-[1fr_auto_1fr] gap-10 items-start">
@@ -920,7 +920,13 @@ export default function AppMockup() {
             Less planning. More living. AskNora helps you plan, organize, and enjoy meaningful trips — all in one
             place.
           </p>
-          <img src={amalfiPolaroid} alt="Amalfi Coast, Italy" className="w-60 h-auto" style={{ transform: "rotate(-3deg)" }} />
+          <img
+            src={amalfiPolaroid}
+            alt="Amalfi Coast, Italy"
+            loading="lazy"
+            className="w-60 h-auto"
+            style={{ transform: "rotate(-3deg)" }}
+          />
           <Note>"A well planned trip is a happier you."</Note>
           <div className="relative w-full h-10">
             <svg className="absolute inset-0 w-full h-full" viewBox="0 0 220 40" preserveAspectRatio="none" aria-hidden="true">
@@ -1035,8 +1041,13 @@ export default function AppMockup() {
 
         {/* Right: feature callouts + scrapbook photo */}
         <div className="hidden lg:flex flex-col items-start gap-4 order-3">
-          <img src={featureCards} alt="Plan Smarter, Stay Organized, Travel Together" className="w-72 h-auto" />
-          <img src={amalfiScrapbook} alt="Amalfi Coast travel scrapbook" className="w-64 h-auto" />
+          <img
+            src={featureCards}
+            alt="Plan Smarter, Stay Organized, Travel Together"
+            loading="lazy"
+            className="w-72 h-auto"
+          />
+          <img src={amalfiScrapbook} alt="Amalfi Coast travel scrapbook" loading="lazy" className="w-64 h-auto" />
         </div>
       </div>
     </motion.div>

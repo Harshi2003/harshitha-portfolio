@@ -110,6 +110,8 @@ export default function Home() {
             <img
               src={portraitBlob}
               alt={profile.name}
+              loading="eager"
+              fetchPriority="high"
               className="w-full max-w-md md:max-w-none"
             />
           </motion.div>
@@ -153,7 +155,12 @@ export default function Home() {
                 title={org.full}
               >
                 {org.logo ? (
-                  <img src={org.logo} alt={org.full} className="h-14 w-auto max-w-[124px] object-contain" />
+                  <img
+                    src={org.logo}
+                    alt={org.full}
+                    loading="lazy"
+                    className="h-14 w-auto max-w-[124px] object-contain"
+                  />
                 ) : (
                   <span
                     className={`inline-flex items-center justify-center rounded-xl text-cream font-display font-semibold shrink-0 ${
