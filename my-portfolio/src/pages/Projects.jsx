@@ -93,13 +93,13 @@ export default function Projects() {
             transition={{ duration: 0.45, delay: (i % 3) * 0.05 }}
             className="group flex flex-col rounded-2xl overflow-hidden bg-white border border-cream-deep hover:border-coral transition-colors hover:-translate-y-1 duration-200"
           >
-            <div className="h-44 w-full overflow-hidden bg-cream-deep">
+            <div className="aspect-video w-full overflow-hidden bg-cream-deep">
               {project.image ? (
                 <img
                   src={project.image}
                   alt={project.title}
                   loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
                 />
               ) : (
                 <div className="group-hover:scale-105 transition-transform duration-300 w-full h-full">
