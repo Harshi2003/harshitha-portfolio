@@ -1,7 +1,6 @@
 import boxOfficeImg from "../assets/images/projects/BoxOffice.png";
 import autonomousSystemImg from "../assets/images/projects/AutonomousSystem.png";
 import stockIntelligenceImg from "../assets/images/projects/StockIntelligence.png";
-import recommendationOptimizationImg from "../assets/images/research/recommendation-optimization.png";
 import emotionRecognitionImg from "../assets/images/research/emotion-recognition.png";
 import medicalImagingGansImg from "../assets/images/research/medical-imaging-gans.png";
 import aiSecurityResearchImg from "../assets/images/ai-security-research.png";
@@ -251,7 +250,6 @@ export const research = [
     focus: "Recommender Systems, Cost/Token Optimization",
     time: "May 2025 – Present",
     badgeIcon: "flask",
-    image: recommendationOptimizationImg,
     accent: "coral",
     interactive: "compress",
     problem:
