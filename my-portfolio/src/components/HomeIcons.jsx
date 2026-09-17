@@ -193,9 +193,9 @@ const FG = {
   amber: "text-amber bg-amber/15",
 };
 
-export function Glyph({ name, className = "" }) {
+export function Glyph({ name, className = "", style }) {
   return (
-    <svg width="1em" height="1em" viewBox={VIEWBOX[name] || "0 0 44 44"} className={className} aria-hidden="true">
+    <svg width="1em" height="1em" viewBox={VIEWBOX[name] || "0 0 44 44"} className={className} style={style} aria-hidden="true">
       {PATHS[name]}
     </svg>
   );

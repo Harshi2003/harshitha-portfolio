@@ -1,5 +1,15 @@
 import boxOfficeImg from "../assets/images/projects/BoxOffice.png";
 import autonomousSystemImg from "../assets/images/projects/AutonomousSystem.png";
+import sjsuWordmark from "../assets/images/logos/sjsu-wordmark.png";
+import amritaWordmark from "../assets/images/logos/amrita-wordmark.png";
+import adobeWordmark from "../assets/images/logos/adobe-wordmark.png";
+import acmSjsuLogo from "../assets/images/logos/acm-sjsu.png";
+import sweSjsuLogo from "../assets/images/logos/swe-sjsu.jpeg";
+import aimlClubLogo from "../assets/images/logos/aiml-club.webp";
+import stealthStartupLogo from "../assets/images/logos/stealth-startup.png";
+import amfossLogo from "../assets/images/logos/amfoss.webp";
+import streetCauseLogo from "../assets/images/logos/street-cause.png";
+import harshithaPhoto from "../assets/images/harshitha.jpeg";
 
 export const profile = {
   name: "Sai Harshitha Peddi",
@@ -16,7 +26,97 @@ export const profile = {
   status: "Full-time @ a stealth AI startup",
   ctaHeading: "Let's build something amazing together!",
   ctaBody: "Always up for a good conversation about agentic AI, research, or your next collaboration.",
+  phone: null,
+  openToRelocate: null,
+  photo: harshithaPhoto,
 };
+
+export const recruiterBrief = {
+  summary: "AI / Full Stack Engineer blending applied AI, backend systems, and full-stack product engineering.",
+  targetPositions: ["Full Stack Engineer", "AI/ML Engineer", "Agentic AI Engineer", "Applied AI Engineer", "Software Engineer"],
+  reasons: [
+    {
+      icon: "rocket",
+      accent: "coral",
+      title: "Production AI experience",
+      text: "Built and shipped agentic AI systems used by real users today, not just prototypes.",
+    },
+    {
+      icon: "flask",
+      accent: "teal",
+      title: "Research + engineering blend",
+      text: "Research-grade rigor (ARES: 157x-277x faster training) paired with real production shipping.",
+    },
+    {
+      icon: "briefcase",
+      accent: "amber",
+      title: "End-to-end ownership",
+      text: "Owns projects from prototype to production across backend, frontend, and infra.",
+    },
+    {
+      icon: "barchart",
+      accent: "coral",
+      title: "Measurable impact",
+      text: "45+ daily users, latency cut from 8s to 5s, 40% fewer reported issues.",
+    },
+    {
+      icon: "code",
+      accent: "teal",
+      title: "Full-stack + AI breadth",
+      text: "Comfortable across Python/Java, React, FastAPI, LangChain/LangGraph, and cloud/DevOps.",
+    },
+  ],
+  assessment: [
+    {
+      icon: "brain",
+      category: "AI/ML Systems",
+      evidence: "Strong evidence",
+      note: "Built agentic AI systems, RAG pipelines, and a novel recommender system (ARES).",
+    },
+    {
+      icon: "code",
+      category: "Software Engineering",
+      evidence: "Proven",
+      note: "Production experience across a stealth AI startup, Avantel, and SJSU security research.",
+    },
+    {
+      icon: "server",
+      category: "Backend & Data",
+      evidence: "Strong evidence",
+      note: "FastAPI, PostgreSQL/pgvector, Kafka, Redis, cloud infra (AWS, GCP, Docker, Kubernetes).",
+    },
+    {
+      icon: "flask",
+      category: "Research",
+      evidence: "Strong evidence",
+      note: "ARES (157x-277x speedup), speech emotion recognition, and GAN-based medical imaging research.",
+    },
+    {
+      icon: "briefcase",
+      category: "Product & Production Ownership",
+      evidence: "Proven",
+      note: "Owns the full dev lifecycle from idea to deployment at a stealth AI startup and Avantel.",
+    },
+  ],
+  quickProof: [
+    { value: "45+", label: "Daily active users", note: "Stealth AI startup" },
+    { value: "8s → 5s", label: "Latency improvement", note: "Stealth AI startup" },
+    { value: "157x-277x", label: "ARES training speedup", note: "vs. LightGCN baseline" },
+    { value: "50+", label: "Students mentored", note: "TA, SJSU" },
+  ],
+};
+
+export const orgs = [
+  { short: "Stealth Startup", full: "Stealth AI Startup", note: "Full Stack Software Engineer", initials: "SS", color: "ink", logo: stealthStartupLogo },
+  { short: "SJSU", full: "San Jose State University", note: "Research & TA", initials: "SJSU", color: "amber", logo: sjsuWordmark },
+  { short: "Amrita", full: "Amrita Vishwa Vidyapeetham", note: "Undergrad Research", initials: "AVV", color: "coral", logo: amritaWordmark },
+  { short: "Adobe", full: "Adobe", note: "Shadow Engineer Program", initials: "Ad", color: "ink", logo: adobeWordmark },
+  { short: "ACM SJSU", full: "ACM-CS SJSU Student Chapter", note: "Member", initials: "ACM", color: "teal", logo: acmSjsuLogo },
+  { short: "SWE SJSU", full: "Society of Women Engineers — SJSU", note: "Member", initials: "SWE", color: "coral", logo: sweSjsuLogo },
+  { short: "AI/ML Club", full: "AI/ML Club", note: "Member", initials: "AI", color: "amber", logo: aimlClubLogo },
+  { short: "amFOSS", full: "amFOSS — Amrita FOSS Club", note: "Member", initials: "FOSS", color: "teal", logo: amfossLogo },
+  { short: "Street Cause", full: "Street Cause — We Care", note: "Volunteer", initials: "SC", color: "coral", logo: streetCauseLogo },
+];
 
 export const journey = [
   {
@@ -45,25 +145,6 @@ export const journey = [
   },
 ];
 
-export const featuredSkills = [
-  "Python",
-  "TypeScript",
-  "React",
-  "Node.js",
-  "FastAPI",
-  "LangChain",
-  "LangGraph",
-  "RAG",
-  "MCP Integrations",
-  "PostgreSQL",
-  "pgvector",
-  "Kubernetes",
-  "Docker",
-  "AWS",
-  "Kafka",
-  "Claude Code",
-];
-
 export const education = {
   degree: "M.S. Artificial Intelligence, Data Science Track",
   school: "San Jose State University",
@@ -74,6 +155,30 @@ export const education = {
     "Research work used Python and Java for agentic AI, security, evaluation, backend services, data processing, and reproducible experimentation.",
   ],
 };
+
+export const credentials = [
+  {
+    name: "Internet of Things Specialization",
+    issuer: "Coursera · University of Illinois Urbana-Champaign",
+    status: "Completed",
+    skills: [
+      "Network Architecture",
+      "Wireless Networks",
+      "Embedded Systems",
+      "Cloud-Based Integration",
+      "Network Security",
+      "Digital Communications",
+      "IoT Devices",
+      "Network Protocols",
+    ],
+  },
+  {
+    name: "Claude Certified Architect — Foundations",
+    issuer: "Anthropic",
+    status: "In Progress",
+    skills: ["Building with Claude", "Prompt Engineering", "Tool Use & Agents", "Responsible AI Practices"],
+  },
+];
 
 export const skillGroups = [
   {
@@ -233,6 +338,7 @@ export const experience = [
     featured: true,
     current: true,
     badgeIcon: "rocket",
+    showcase: "app-mockup",
     summary:
       "Building full-stack, agentic AI features for a fast-moving product team, from backend workflows to the interface people use every day.",
     previewTags: ["LangGraph", "RAG", "TypeScript", "Cross-Functional Collaboration"],

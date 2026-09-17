@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { education, experience, research, skillGroups } from "../data/content";
+import { experience, research, skillGroups } from "../data/content";
 import TechChip from "../components/TechChip";
 import ExperienceTimeline from "../components/ExperienceTimeline";
 import ResearchTimeline from "../components/ResearchTimeline";
@@ -29,35 +29,14 @@ export default function Experience() {
         />
       </motion.div>
 
-      <section className="max-w-3xl mx-auto mb-16">
-        <h2 className="font-display text-3xl text-ink mb-8">Education</h2>
-        <div>
-          <p className="text-sm text-ink-soft mb-1">{education.time}</p>
-          <h3 className="font-display text-xl text-ink">{education.degree}</h3>
-          <p className="text-ink-soft mb-3">
-            {education.school} · {education.place}
-          </p>
-          <ul className="space-y-1.5 text-ink-soft">
-            {education.points.map((point, i) => (
-              <li
-                key={i}
-                className="pl-4 relative before:content-['—'] before:absolute before:left-0 before:text-coral"
-              >
-                {point}
-              </li>
-            ))}
-          </ul>
-        </div>
+      <section className="max-w-6xl mx-auto mb-16">
+        <h2 className="font-display text-3xl text-ink mb-8">Professional</h2>
+        <ExperienceTimeline roles={experience} />
       </section>
 
       <section className="max-w-6xl mx-auto mb-16">
         <h2 className="font-display text-3xl text-ink mb-8">Research</h2>
         <ResearchTimeline items={research} />
-      </section>
-
-      <section className="max-w-6xl mx-auto mb-16">
-        <h2 className="font-display text-3xl text-ink mb-8">Professional</h2>
-        <ExperienceTimeline roles={experience} />
       </section>
 
       <motion.div

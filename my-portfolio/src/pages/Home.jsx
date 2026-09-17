@@ -1,12 +1,14 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { profile, journey, projects, experience, education } from "../data/content";
+import { profile, journey, orgs, projects, experience, education } from "../data/content";
 import portraitBlob from "../assets/images/portrait-blob.png";
 import skillsMindmap from "../assets/images/skills-mindmap.png";
 import HomeIcon, { Glyph } from "../components/HomeIcons";
 import ProjectPlaceholder from "../components/ProjectPlaceholder";
 import TechChip from "../components/TechChip";
 import CoffeeMeter from "../components/CoffeeMeter";
+import RecruiterBrief from "../components/RecruiterBrief";
 
 const featuredProjects = projects.filter((p) => p.featured);
 const featuredExperience = experience.filter((e) => e.featured);
@@ -39,9 +41,12 @@ function SectionHeading({ title, to, label }) {
 }
 
 export default function Home() {
+  const [briefOpen, setBriefOpen] = useState(false);
+
   return (
     <div className="max-w-5xl mx-auto py-12 md:py-20">
       <CoffeeMeter />
+      <RecruiterBrief open={briefOpen} onClose={() => setBriefOpen(false)} />
 
       {/* Hero */}
       <section className="relative max-w-4xl mb-20">
@@ -51,15 +56,30 @@ export default function Home() {
 
         <div className="relative grid md:grid-cols-[1fr_540px] gap-6 items-center mb-8">
           <div>
-            <motion.div
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 text-sm font-semibold text-teal bg-teal/10 border border-teal/30 rounded-full px-4 py-1.5 mb-5"
-            >
-              <span className="w-2 h-2 rounded-full bg-teal" />
-              {profile.status}
-            </motion.div>
+            <div className="flex flex-wrap items-center gap-3 mb-5">
+              <motion.div
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="inline-flex items-center gap-2 text-sm font-semibold text-teal bg-teal/10 border border-teal/30 rounded-full px-4 py-1.5"
+              >
+                <span className="w-2 h-2 rounded-full bg-teal" />
+                {profile.status}
+              </motion.div>
+
+              <motion.button
+                type="button"
+                onClick={() => setBriefOpen(true)}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.03 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.97 }}
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-coral-deep bg-coral/10 border border-coral/30 rounded-full px-4 py-1.5 hover:bg-coral hover:text-cream transition-colors"
+              >
+                <Glyph name="sparkle" className="text-sm" /> For Recruiters
+              </motion.button>
+            </div>
 
             <motion.p
               initial={{ opacity: 0, y: 8 }}
@@ -115,6 +135,38 @@ export default function Home() {
               {tag}
             </motion.span>
           ))}
+        </div>
+      </section>
+
+      {/* Organizations */}
+      <section className="mb-20">
+        <p className="text-center text-ink-soft/70 text-sm mb-8">Organizations I've worked with.</p>
+        <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+          <div
+            className="flex w-max gap-4 hover:[animation-play-state:paused]"
+            style={{ animation: "org-marquee 26s linear infinite" }}
+          >
+            {[...orgs, ...orgs].map((org, i) => (
+              <div
+                key={`${org.short}-${i}`}
+                className="shrink-0 w-36 h-20 rounded-xl bg-white border border-cream-deep flex items-center justify-center px-3 shadow-sm"
+                title={org.full}
+              >
+                {org.logo ? (
+                  <img src={org.logo} alt={org.full} className="h-14 w-auto max-w-[124px] object-contain" />
+                ) : (
+                  <span
+                    className={`inline-flex items-center justify-center rounded-xl text-cream font-display font-semibold shrink-0 ${
+                      { coral: "bg-coral", amber: "bg-amber", teal: "bg-teal", ink: "bg-ink" }[org.color]
+                    }`}
+                    style={{ width: 44, height: 44, fontSize: org.initials.length > 3 ? 11 : 15 }}
+                  >
+                    {org.initials}
+                  </span>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

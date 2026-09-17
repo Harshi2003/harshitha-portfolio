@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Glyph } from "./HomeIcons";
 import TechChip from "./TechChip";
+import AppMockup from "./AppMockup";
 
 function RoleBadge({ role, active }) {
   const size = active ? 40 : 32;
@@ -26,7 +27,7 @@ function RoleBadge({ role, active }) {
   );
 }
 
-const TABS = [
+const BASE_TABS = [
   { key: "overview", label: "Overview" },
   { key: "built", label: "What I Built" },
   { key: "challenge", label: "The Challenge" },
@@ -35,8 +36,9 @@ const TABS = [
 
 export default function ExperienceTimeline({ roles }) {
   const [selected, setSelected] = useState(0);
-  const [tab, setTab] = useState("overview");
+  const [tab, setTab] = useState(roles[0].showcase === "app-mockup" ? "product" : "overview");
   const role = roles[selected];
+  const tabs = role.showcase === "app-mockup" ? [{ key: "product", label: "The Product" }, ...BASE_TABS] : BASE_TABS;
 
   return (
     <div className="grid md:grid-cols-[280px_1fr] gap-6 md:gap-8">
@@ -52,7 +54,7 @@ export default function ExperienceTimeline({ roles }) {
                 type="button"
                 onClick={() => {
                   setSelected(i);
-                  setTab("overview");
+                  setTab(r.showcase === "app-mockup" ? "product" : "overview");
                 }}
                 className={`relative flex items-center gap-3 text-left rounded-2xl border p-3 transition-colors ${
                   isActive
@@ -104,7 +106,7 @@ export default function ExperienceTimeline({ roles }) {
           </div>
 
           <div className="flex gap-6 border-b border-cream-deep mb-6 overflow-x-auto">
-            {TABS.map((t) => (
+            {tabs.map((t) => (
               <button
                 key={t.key}
                 type="button"
@@ -119,6 +121,8 @@ export default function ExperienceTimeline({ roles }) {
           </div>
 
           <motion.div key={tab} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.2 }}>
+            {tab === "product" && role.showcase === "app-mockup" && <AppMockup />}
+
             {tab === "overview" && (
               <div>
                 <div className="grid sm:grid-cols-2 gap-6 mb-6">

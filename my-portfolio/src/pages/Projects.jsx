@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
-import { projects } from "../data/content";
+import { credentials, education, projects } from "../data/content";
 import ProjectPlaceholder from "../components/ProjectPlaceholder";
 import TechChip from "../components/TechChip";
+import CredentialCard from "../components/CredentialCard";
 import coffeeNote from "../assets/images/coffee-code-curiosity.png";
 
 export default function Projects() {
@@ -35,6 +36,49 @@ export default function Projects() {
         transition={{ duration: 0.5 }}
         className="md:hidden w-56 -rotate-2 mix-blend-multiply mb-10"
       />
+
+      <motion.section
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+        className="rounded-2xl bg-white border border-cream-deep p-6 md:p-8 mb-12 md:mb-16"
+      >
+        <h2 className="font-display text-2xl text-ink mb-6">Academic Foundation</h2>
+        <div className="md:flex md:items-start md:justify-between md:gap-8">
+          <div>
+            <p className="text-sm text-ink-soft mb-1">{education.time}</p>
+            <h3 className="font-display text-xl text-ink">{education.degree}</h3>
+            <p className="text-ink-soft mb-3">
+              {education.school} · {education.place}
+            </p>
+            <ul className="space-y-1.5 text-ink-soft">
+              {education.points.map((point, i) => (
+                <li
+                  key={i}
+                  className="pl-4 relative before:content-['—'] before:absolute before:left-0 before:text-coral"
+                >
+                  {point}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </motion.section>
+
+      <motion.section
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.15 }}
+        className="mb-12 md:mb-16"
+      >
+        <h2 className="font-display text-2xl text-ink mb-1">Credential Vault</h2>
+        <p className="text-sm text-ink-soft mb-6">Tap a card to flip it.</p>
+        <div className="grid sm:grid-cols-2 gap-5">
+          {credentials.map((c) => (
+            <CredentialCard key={c.name} credential={c} />
+          ))}
+        </div>
+      </motion.section>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project, i) => (
