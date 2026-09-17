@@ -899,9 +899,9 @@ export default function AppMockup() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.6 }}
-      className="relative py-8 lg:py-10 px-4 md:px-8 mb-2 lg:rounded-3xl lg:overflow-hidden"
+      className="relative py-8 lg:py-10 px-4 md:px-8 mb-2 rounded-3xl overflow-hidden"
     >
-      <div className="hidden lg:block absolute inset-0 rounded-3xl overflow-hidden" style={{ background: `${AN.sand}40` }} aria-hidden="true">
+      <div className="absolute inset-0 rounded-3xl overflow-hidden" style={{ background: `${AN.sand}40` }} aria-hidden="true">
         <img src={worldMap} alt="" className="absolute inset-0 w-full h-full object-cover opacity-45" />
       </div>
 
