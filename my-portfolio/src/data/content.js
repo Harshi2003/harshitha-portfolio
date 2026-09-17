@@ -1,6 +1,12 @@
 import boxOfficeImg from "../assets/images/projects/BoxOffice.png";
 import autonomousSystemImg from "../assets/images/projects/AutonomousSystem.png";
 import stockIntelligenceImg from "../assets/images/projects/StockIntelligence.png";
+import aresRecommenderImg from "../assets/images/projects/ARESRecommender.png";
+import atlasCodeIntelligenceImg from "../assets/images/projects/AtlasCodeIntelligence.png";
+import pdfChatterImg from "../assets/images/projects/PDFChatter.png";
+import skyIntelImg from "../assets/images/projects/SkyIntel.png";
+import teluguOcrImg from "../assets/images/projects/TeluguOCR.png";
+import digitalLogicSimulatorImg from "../assets/images/projects/DigitalLogicSimulator.png";
 import emotionRecognitionImg from "../assets/images/research/emotion-recognition.png";
 import medicalImagingGansImg from "../assets/images/research/medical-imaging-gans.png";
 import aiSecurityResearchImg from "../assets/images/ai-security-research.png";
@@ -522,8 +528,7 @@ export const projects = [
       "Built an exact similarity recommendation system across four datasets with up to 2.98M interactions, using quantization, bit-sliced vector compression, Hamming distance, and adaptive bitmap compression to cut memory from 421MB to 80MB.",
     tags: ["Python", "pandas", "NumPy", "Quantization", "Bitmap Compression"],
     github: FALLBACK_GITHUB,
-    placeholderIcon: "grid",
-    placeholderAccent: "coral",
+    image: aresRecommenderImg,
   },
   {
     title: "Atlas AI Code Intelligence Platform",
@@ -532,8 +537,7 @@ export const projects = [
       "A full-stack RAG application that indexes GitHub repositories and returns grounded answers with source references, built on FastAPI, PostgreSQL, pgvector, async indexing, retries, and rate limits.",
     tags: ["Python", "FastAPI", "PostgreSQL", "pgvector", "Docker", "GCP"],
     github: FALLBACK_GITHUB,
-    placeholderIcon: "code",
-    placeholderAccent: "teal",
+    image: atlasCodeIntelligenceImg,
     featured: true,
   },
   {
@@ -543,8 +547,7 @@ export const projects = [
       "A document question-answering app that chunks and retrieves from long PDFs so people can ask questions instead of scrolling, built serverless on AWS Lambda with Redis caching for speed.",
     tags: ["React", "Node.js", "LangChain", "AWS Lambda", "Redis"],
     github: FALLBACK_GITHUB,
-    placeholderIcon: "document",
-    placeholderAccent: "amber",
+    image: pdfChatterImg,
   },
   {
     title: "Real-Time Travel Disruption Intelligence Platform",
@@ -553,8 +556,7 @@ export const projects = [
       "Distributed event processing pipelines with Kafka, Airflow, and Spark Structured Streaming serving real-time travel disruption data, with Prometheus and Grafana keeping failures visible instead of silent.",
     tags: ["Kafka", "Airflow", "Spark", "Cassandra", "FastAPI"],
     github: FALLBACK_GITHUB,
-    placeholderIcon: "signal",
-    placeholderAccent: "coral",
+    image: skyIntelImg,
   },
   {
     title: "AI Stock Intelligence Platform",
@@ -602,8 +604,7 @@ export const projects = [
       "Combines CNN embeddings, cosine similarity, and YOLOv8n detection to recognize handwritten Telugu characters — my first project that turned into a peer-reviewed paper.",
     tags: ["Python", "YOLOv8n", "CNN Embeddings", "Optuna"],
     github: FALLBACK_GITHUB,
-    placeholderIcon: "scan",
-    placeholderAccent: "teal",
+    image: teluguOcrImg,
   },
   {
     title: "Digital Logic Netlist Simulator",
@@ -612,8 +613,7 @@ export const projects = [
       "A C++17 gate-level simulator with netlist parsing, hash-map based signal state, and deterministic propagation, verified with Python functional tests and Linux Make tooling.",
     tags: ["C++17", "Python", "Linux", "Make"],
     github: FALLBACK_GITHUB,
-    placeholderIcon: "gate",
-    placeholderAccent: "amber",
+    image: digitalLogicSimulatorImg,
   },
   {
     title: "Autonomous Driving Reinforcement Learning",
