@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Glyph } from "./HomeIcons";
 import TechChip from "./TechChip";
 import AppMockup from "./AppMockup";
+import exploreMoreStamp from "../assets/images/explore-more-stamp.png";
 
 function RoleBadge({ role, active }) {
   const size = active ? 40 : 32;
@@ -41,9 +42,9 @@ export default function ExperienceTimeline({ roles }) {
   const tabs = role.showcase === "app-mockup" ? [{ key: "product", label: "The Product" }, ...BASE_TABS] : BASE_TABS;
 
   return (
-    <div className="grid md:grid-cols-[280px_1fr] gap-6 md:gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-6 md:gap-8 min-w-0">
       {/* Role list */}
-      <div className="relative pl-2">
+      <div className="relative pl-2 min-w-0">
         <div className="absolute left-[21px] top-4 bottom-4 w-px border-l-2 border-dashed border-cream-deep" />
         <div className="flex flex-col gap-3">
           {roles.map((r, i) => {
@@ -56,7 +57,7 @@ export default function ExperienceTimeline({ roles }) {
                   setSelected(i);
                   setTab(r.showcase === "app-mockup" ? "product" : "overview");
                 }}
-                className={`relative flex items-center gap-3 text-left rounded-2xl border p-3 transition-colors ${
+                className={`relative flex items-center gap-3 text-left rounded-2xl border p-3 transition-colors w-full min-w-0 ${
                   isActive
                     ? "bg-cream-deep/50 border-coral shadow-sm"
                     : "bg-transparent border-transparent hover:bg-cream-deep/30"
@@ -84,7 +85,17 @@ export default function ExperienceTimeline({ roles }) {
       </div>
 
       {/* Detail panel */}
-      <div className="rounded-2xl bg-cream-deep/30 border border-cream-deep p-6 md:p-8">
+      <div className="relative rounded-2xl bg-cream-deep/30 border border-cream-deep p-6 md:p-8">
+        {role.showcase === "app-mockup" && (
+          <div className="hidden lg:flex absolute top-6 right-6 xl:right-10 items-start gap-2 z-10">
+            <p className="font-hand text-base text-right leading-snug pt-1" style={{ color: "#D35400" }}>
+              Better travel days
+              <br />
+              for a brighter tomorrow <span aria-hidden="true">♡</span>
+            </p>
+            <img src={exploreMoreStamp} alt="" aria-hidden="true" className="w-20 h-auto rotate-6 shrink-0" />
+          </div>
+        )}
         <motion.div key={selected} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}>
           <p className="font-display text-2xl text-ink mb-1">{role.org}</p>
           <p className="text-coral-deep font-semibold mb-3">{role.role}</p>

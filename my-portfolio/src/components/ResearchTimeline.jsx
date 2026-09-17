@@ -16,9 +16,9 @@ export default function ResearchTimeline({ items }) {
   const tabs = item.interactive === "compress" ? [...BASE_TABS, { key: "try", label: "Try It ⚡" }] : BASE_TABS;
 
   return (
-    <div className="grid md:grid-cols-[280px_1fr] gap-6 md:gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-6 md:gap-8 min-w-0">
       {/* Research list */}
-      <div className="relative pl-2">
+      <div className="relative pl-2 min-w-0">
         <div className="absolute left-[21px] top-4 bottom-4 w-px border-l-2 border-dashed border-cream-deep" />
         <div className="flex flex-col gap-3">
           {items.map((r, i) => {
@@ -32,7 +32,7 @@ export default function ResearchTimeline({ items }) {
                   setSelected(i);
                   setTab("overview");
                 }}
-                className={`relative flex items-center gap-3 text-left rounded-2xl border p-3 transition-colors ${
+                className={`relative flex items-center gap-3 text-left rounded-2xl border p-3 transition-colors w-full min-w-0 ${
                   isActive
                     ? "bg-cream-deep/50 border-coral shadow-sm"
                     : "bg-transparent border-transparent hover:bg-cream-deep/30"
