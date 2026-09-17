@@ -72,8 +72,15 @@ export default function ResearchTimeline({ items }) {
           </div>
 
           {item.image && (
-            <div className="rounded-2xl overflow-hidden mb-6 border border-cream-deep">
-              <img src={item.image} alt={item.focus} loading="lazy" className="w-full h-auto" />
+            <div className="rounded-2xl overflow-hidden mb-6 border border-cream-deep aspect-[3/2]">
+              <img
+                src={item.image}
+                alt={item.focus}
+                loading="lazy"
+                width={1100}
+                height={733}
+                className="w-full h-full object-cover"
+              />
             </div>
           )}
 

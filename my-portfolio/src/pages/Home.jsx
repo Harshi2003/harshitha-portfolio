@@ -112,6 +112,8 @@ export default function Home() {
               alt={profile.name}
               loading="eager"
               fetchPriority="high"
+              width={900}
+              height={540}
               className="w-full max-w-md md:max-w-none"
             />
           </motion.div>

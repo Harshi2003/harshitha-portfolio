@@ -97,7 +97,8 @@ export default function ExperienceTimeline({ roles }) {
               src={exploreMoreStamp}
               alt=""
               aria-hidden="true"
-              loading="lazy"
+              width={400}
+              height={400}
               className="w-40 xl:w-44 h-auto rotate-6 shrink-0"
             />
           </div>
@@ -123,8 +124,15 @@ export default function ExperienceTimeline({ roles }) {
           </div>
 
           {role.image && (
-            <div className="rounded-2xl overflow-hidden mb-6 border border-cream-deep">
-              <img src={role.image} alt={role.role} loading="lazy" className="w-full h-auto" />
+            <div className="rounded-2xl overflow-hidden mb-6 border border-cream-deep aspect-[3/2]">
+              <img
+                src={role.image}
+                alt={role.role}
+                loading="lazy"
+                width={1100}
+                height={733}
+                className="w-full h-full object-cover"
+              />
             </div>
           )}
 
