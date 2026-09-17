@@ -58,7 +58,7 @@ export default function ResearchTimeline({ items }) {
       </div>
 
       {/* Detail panel */}
-      <div className="rounded-2xl bg-cream-deep/30 border border-cream-deep p-6 md:p-8">
+      <div className="relative rounded-2xl bg-cream-deep/30 border border-cream-deep p-6 md:p-8 min-w-0">
         <motion.div key={selected} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}>
           <p className="font-display text-2xl text-ink mb-1">{item.role}</p>
           <p className="text-coral-deep font-semibold mb-3">

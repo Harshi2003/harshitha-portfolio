@@ -44,18 +44,18 @@ export default function Home() {
   const [briefOpen, setBriefOpen] = useState(false);
 
   return (
-    <div className="max-w-5xl mx-auto py-12 md:py-20">
+    <div className="max-w-5xl xl:max-w-6xl mx-auto py-12 md:py-20">
       <CoffeeMeter />
       <RecruiterBrief open={briefOpen} onClose={() => setBriefOpen(false)} />
 
       {/* Hero */}
-      <section className="relative max-w-4xl mb-20">
+      <section className="relative max-w-4xl xl:max-w-5xl mb-20">
         <Bubble className="bg-teal/10 -right-6 top-4 hidden md:block" size={70} duration={7} />
         <Bubble className="bg-amber/15 right-24 -top-6 hidden md:block" size={30} delay={1} duration={5} />
         <Bubble className="bg-coral/10 right-2 bottom-10 hidden md:block" size={44} delay={0.5} duration={8} />
 
-        <div className="relative grid md:grid-cols-[1fr_540px] gap-6 items-center mb-8">
-          <div>
+        <div className="relative grid md:grid-cols-[1fr_380px] lg:grid-cols-[1fr_540px] gap-6 lg:gap-10 items-center mb-8">
+          <div className="min-w-0">
             <div className="flex flex-wrap items-center gap-3 mb-5">
               <motion.div
                 initial={{ opacity: 0, y: 8 }}
@@ -94,7 +94,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-display text-4xl md:text-5xl leading-tight text-ink mb-6"
+              className="font-display text-4xl md:text-5xl lg:text-6xl leading-tight text-ink mb-6"
             >
               {profile.tagline}
             </motion.h1>

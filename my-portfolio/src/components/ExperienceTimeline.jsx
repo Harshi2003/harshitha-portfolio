@@ -85,7 +85,7 @@ export default function ExperienceTimeline({ roles }) {
       </div>
 
       {/* Detail panel */}
-      <div className="relative rounded-2xl bg-cream-deep/30 border border-cream-deep p-6 md:p-8">
+      <div className="relative rounded-2xl bg-cream-deep/30 border border-cream-deep p-6 md:p-8 min-w-0">
         {role.showcase === "app-mockup" && (
           <div className="hidden lg:flex absolute top-6 right-6 xl:right-10 items-start gap-2 z-10">
             <p className="font-hand text-base text-right leading-snug pt-1" style={{ color: "#D35400" }}>
