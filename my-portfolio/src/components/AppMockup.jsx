@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { Glyph } from "./HomeIcons";
 import amalfiPolaroid from "../assets/images/amalfi-polaroid.png";
 import amalfiScrapbook from "../assets/images/amalfi-scrapbook.png";
+import featureCards from "../assets/images/feature-cards.png";
+import worldMap from "../assets/images/world-map.png";
 
 const AN = {
   saffron: "#D35400",
@@ -873,95 +875,6 @@ function Note({ children, rotate = -2 }) {
   );
 }
 
-const TORN_EDGE =
-  "polygon(0% 2%,4% 0%,8% 3%,12% 0%,16% 3%,20% 0%,24% 3%,28% 0%,32% 3%,36% 0%,40% 3%,44% 0%,48% 3%,52% 0%,56% 3%,60% 0%,64% 3%,68% 0%,72% 3%,76% 0%,80% 3%,84% 0%,88% 3%,92% 0%,96% 3%,100% 0%,100% 98%,96% 100%,92% 97%,88% 100%,84% 97%,80% 100%,76% 97%,72% 100%,68% 97%,64% 100%,60% 97%,56% 100%,52% 97%,48% 100%,44% 97%,40% 100%,36% 97%,32% 100%,28% 97%,24% 100%,20% 97%,16% 100%,12% 97%,8% 100%,4% 97%,0% 100%)";
-
-function FeatureCallout({ icon, title, text, rotate = 0 }) {
-  return (
-    <div
-      className="p-4 flex items-start gap-3 w-64 shadow-md"
-      style={{ background: "#FBF6EC", clipPath: TORN_EDGE, transform: `rotate(${rotate}deg)` }}
-    >
-      <span
-        className="w-9 h-9 rounded-md border flex items-center justify-center shrink-0"
-        style={{ borderColor: AN.espresso, color: AN.espresso, opacity: 0.85 }}
-      >
-        <Glyph name={icon} className="text-sm" />
-      </span>
-      <div>
-        <p className="font-display text-sm text-ink mb-0.5">{title}</p>
-        <p className="text-xs text-ink-soft italic leading-snug">{text}</p>
-      </div>
-    </div>
-  );
-}
-
-function FeatureConnector({ children }) {
-  return (
-    <div className="relative pl-7">
-      <svg className="absolute left-0 top-0 w-7 h-full" viewBox="0 0 28 280" preserveAspectRatio="none" aria-hidden="true">
-        <defs>
-          <marker id="fc-arrow" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
-            <path d="M0,0 L7,3.5 L0,7 Z" fill={AN.espresso} fillOpacity="0.45" />
-          </marker>
-        </defs>
-        <path d="M2 0 V 280" stroke={AN.espresso} strokeOpacity="0.25" strokeWidth="1.5" strokeDasharray="1 5" fill="none" />
-        {[38, 140, 242].map((y) => (
-          <path
-            key={y}
-            d={`M2 ${y} C 14 ${y}, 18 ${y}, 26 ${y}`}
-            stroke={AN.espresso}
-            strokeOpacity="0.4"
-            strokeWidth="1.5"
-            strokeDasharray="1 5"
-            fill="none"
-            markerEnd="url(#fc-arrow)"
-          />
-        ))}
-      </svg>
-      <div className="flex flex-col gap-4">{children}</div>
-    </div>
-  );
-}
-
-function WorldMapBg() {
-  return (
-    <svg className="absolute inset-0 w-full h-full opacity-[0.22]" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <defs>
-        <pattern id="map-grid" width="20" height="20" patternUnits="userSpaceOnUse">
-          <path d="M20 0 L0 0 0 20" fill="none" stroke={AN.olive} strokeWidth="0.5" strokeOpacity="0.5" />
-        </pattern>
-      </defs>
-      <rect width="400" height="400" fill="url(#map-grid)" />
-      <path
-        d="M40 90 Q70 70 110 85 T190 80 Q220 95 210 130 T230 190 Q210 220 170 210 T110 230 Q70 220 60 180 T40 90 Z"
-        fill={AN.olive}
-        fillOpacity="0.5"
-        stroke={AN.olive}
-        strokeWidth="1"
-      />
-      <path
-        d="M230 40 Q270 30 310 55 T360 100 Q350 140 310 130 T260 150 Q230 120 230 80 Z"
-        fill={AN.olive}
-        fillOpacity="0.5"
-        stroke={AN.olive}
-        strokeWidth="1"
-      />
-      <path d="M120 250 Q150 240 170 265 T190 320 Q160 340 130 320 T110 280 Z" fill={AN.olive} fillOpacity="0.5" stroke={AN.olive} strokeWidth="1" />
-      <path
-        d="M270 220 Q310 210 330 250 T310 310 Q280 320 260 290 T270 220 Z"
-        fill={AN.olive}
-        fillOpacity="0.5"
-        stroke={AN.olive}
-        strokeWidth="1"
-      />
-      {[[60, 60], [150, 120], [250, 90], [180, 260], [320, 180], [90, 200]].map(([cx, cy], i) => (
-        <circle key={i} cx={cx} cy={cy} r="2.5" fill={AN.saffron} />
-      ))}
-    </svg>
-  );
-}
-
 /* ---------- Shell ---------- */
 
 const CONCEPTS = [
@@ -988,10 +901,8 @@ export default function AppMockup() {
       transition={{ duration: 0.6 }}
       className="relative py-8 lg:py-10 px-4 md:px-8 mb-2 lg:rounded-3xl lg:overflow-hidden"
     >
-      <div className="hidden lg:block absolute inset-0 rounded-3xl overflow-hidden" style={{ background: `${AN.sand}55` }} aria-hidden="true">
-        <WorldMapBg />
-        <span className="absolute w-40 h-40 rounded-full blur-2xl opacity-40 -top-10 -left-10" style={{ background: AN.amber }} />
-        <span className="absolute w-52 h-52 rounded-full blur-2xl opacity-30 -bottom-16 -right-10" style={{ background: AN.olive }} />
+      <div className="hidden lg:block absolute inset-0 rounded-3xl overflow-hidden" style={{ background: `${AN.sand}40` }} aria-hidden="true">
+        <img src={worldMap} alt="" className="absolute inset-0 w-full h-full object-cover opacity-45" />
       </div>
 
       <div className="relative grid lg:grid-cols-[1fr_auto_1fr] gap-10 items-start">
@@ -1124,11 +1035,7 @@ export default function AppMockup() {
 
         {/* Right: feature callouts + scrapbook photo */}
         <div className="hidden lg:flex flex-col items-start gap-4 order-3">
-          <FeatureConnector>
-            <FeatureCallout icon="pin" title="Plan Smarter" text="Get personalized itineraries, packing lists, and reminders." rotate={-1} />
-            <FeatureCallout icon="calendar" title="Stay Organized" text="Keep flights, hotels, activities and docs in one place." rotate={1} />
-            <FeatureCallout icon="connect" title="Travel Together" text="Coordinate with family and friends, effortlessly." rotate={-1} />
-          </FeatureConnector>
+          <img src={featureCards} alt="Plan Smarter, Stay Organized, Travel Together" className="w-72 h-auto" />
           <img src={amalfiScrapbook} alt="Amalfi Coast travel scrapbook" className="w-64 h-auto" />
         </div>
       </div>
