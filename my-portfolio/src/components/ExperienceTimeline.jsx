@@ -116,6 +116,12 @@ export default function ExperienceTimeline({ roles }) {
             )}
           </div>
 
+          {role.image && (
+            <div className="rounded-2xl overflow-hidden mb-6 border border-cream-deep">
+              <img src={role.image} alt={role.role} className="w-full h-auto" />
+            </div>
+          )}
+
           <div className="flex gap-6 border-b border-cream-deep mb-6 overflow-x-auto">
             {tabs.map((t) => (
               <button

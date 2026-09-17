@@ -1,5 +1,10 @@
 import boxOfficeImg from "../assets/images/projects/BoxOffice.png";
 import autonomousSystemImg from "../assets/images/projects/AutonomousSystem.png";
+import stockIntelligenceImg from "../assets/images/projects/StockIntelligence.png";
+import recommendationOptimizationImg from "../assets/images/research/recommendation-optimization.png";
+import emotionRecognitionImg from "../assets/images/research/emotion-recognition.png";
+import medicalImagingGansImg from "../assets/images/research/medical-imaging-gans.png";
+import aiSecurityResearchImg from "../assets/images/ai-security-research.png";
 import sjsuWordmark from "../assets/images/logos/sjsu-wordmark.png";
 import amritaWordmark from "../assets/images/logos/amrita-wordmark.png";
 import adobeWordmark from "../assets/images/logos/adobe-wordmark.png";
@@ -246,6 +251,7 @@ export const research = [
     focus: "Recommender Systems, Cost/Token Optimization",
     time: "May 2025 – Present",
     badgeIcon: "flask",
+    image: recommendationOptimizationImg,
     accent: "coral",
     interactive: "compress",
     problem:
@@ -276,6 +282,7 @@ export const research = [
     focus: "AI & Deep Learning",
     time: "Feb 2023 – May 2024",
     badgeIcon: "flask",
+    image: emotionRecognitionImg,
     accent: "teal",
     problem:
       "Emotion recognition from speech is highly sensitive to speaker variability and noisy recording conditions, and translating that signal into robust, real-time features for embodied systems such as robots remains an open problem.",
@@ -305,6 +312,7 @@ export const research = [
     focus: "Medical Imaging, Healthcare AI",
     time: "May 2021 – Oct 2022",
     badgeIcon: "flask",
+    image: medicalImagingGansImg,
     accent: "amber",
     problem:
       "Stroke lesion classification from medical imaging is critical for timely clinical decision-making, but hospitals often have limited labeled data, making it difficult to train reliable deep learning classifiers under real clinical constraints.",
@@ -406,6 +414,7 @@ export const experience = [
     color: "amber",
     featured: true,
     badgeText: "SJSU",
+    image: aiSecurityResearchImg,
     summary:
       "Led research on an AI assistant that helps security teams investigate incidents faster, balancing model autonomy with careful human oversight.",
     previewTags: ["FastAPI", "Neo4j", "Security Research", "Technical Communication"],
@@ -556,8 +565,7 @@ export const projects = [
       "An AI research product built end to end, with RAG chat, live market data, and document upload with citations, using a provider-agnostic design so local and hosted models swap in without touching app logic.",
     tags: ["React", "Vite", "FastAPI", "RAG", "Market APIs"],
     github: FALLBACK_GITHUB,
-    placeholderIcon: "chart",
-    placeholderAccent: "teal",
+    image: stockIntelligenceImg,
     featured: true,
   },
   {
