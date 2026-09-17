@@ -926,19 +926,37 @@ function FeatureConnector({ children }) {
 
 function WorldMapBg() {
   return (
-    <svg className="absolute inset-0 w-full h-full opacity-[0.07]" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <svg className="absolute inset-0 w-full h-full opacity-[0.22]" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <pattern id="map-grid" width="20" height="20" patternUnits="userSpaceOnUse">
+          <path d="M20 0 L0 0 0 20" fill="none" stroke={AN.olive} strokeWidth="0.5" strokeOpacity="0.5" />
+        </pattern>
+      </defs>
+      <rect width="400" height="400" fill="url(#map-grid)" />
       <path
         d="M40 90 Q70 70 110 85 T190 80 Q220 95 210 130 T230 190 Q210 220 170 210 T110 230 Q70 220 60 180 T40 90 Z"
         fill={AN.olive}
+        fillOpacity="0.5"
+        stroke={AN.olive}
+        strokeWidth="1"
       />
       <path
         d="M230 40 Q270 30 310 55 T360 100 Q350 140 310 130 T260 150 Q230 120 230 80 Z"
         fill={AN.olive}
+        fillOpacity="0.5"
+        stroke={AN.olive}
+        strokeWidth="1"
       />
-      <path d="M120 250 Q150 240 170 265 T190 320 Q160 340 130 320 T110 280 Z" fill={AN.olive} />
-      <path d="M270 220 Q310 210 330 250 T310 310 Q280 320 260 290 T270 220 Z" fill={AN.olive} />
+      <path d="M120 250 Q150 240 170 265 T190 320 Q160 340 130 320 T110 280 Z" fill={AN.olive} fillOpacity="0.5" stroke={AN.olive} strokeWidth="1" />
+      <path
+        d="M270 220 Q310 210 330 250 T310 310 Q280 320 260 290 T270 220 Z"
+        fill={AN.olive}
+        fillOpacity="0.5"
+        stroke={AN.olive}
+        strokeWidth="1"
+      />
       {[[60, 60], [150, 120], [250, 90], [180, 260], [320, 180], [90, 200]].map(([cx, cy], i) => (
-        <circle key={i} cx={cx} cy={cy} r="2" fill={AN.espresso} />
+        <circle key={i} cx={cx} cy={cy} r="2.5" fill={AN.saffron} />
       ))}
     </svg>
   );
@@ -991,8 +1009,24 @@ export default function AppMockup() {
             Less planning. More living. AskNora helps you plan, organize, and enjoy meaningful trips — all in one
             place.
           </p>
-          <img src={amalfiPolaroid} alt="Amalfi Coast, Italy" className="w-44 h-auto" style={{ transform: "rotate(-3deg)" }} />
-          <Note>"A well-planned trip is a happier you."</Note>
+          <img src={amalfiPolaroid} alt="Amalfi Coast, Italy" className="w-60 h-auto" style={{ transform: "rotate(-3deg)" }} />
+          <Note>"A well planned trip is a happier you."</Note>
+          <div className="relative w-full h-10">
+            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 220 40" preserveAspectRatio="none" aria-hidden="true">
+              <path
+                d="M4 32 Q 70 4, 140 18 T 210 10"
+                stroke={AN.espresso}
+                strokeOpacity="0.35"
+                strokeWidth="1.5"
+                strokeDasharray="1 6"
+                strokeLinecap="round"
+                fill="none"
+              />
+            </svg>
+            <span className="absolute text-lg" style={{ right: 4, top: -4, transform: "rotate(-18deg)" }} aria-hidden="true">
+              ✈️
+            </span>
+          </div>
         </div>
 
         {/* Center: concept switcher + phone */}

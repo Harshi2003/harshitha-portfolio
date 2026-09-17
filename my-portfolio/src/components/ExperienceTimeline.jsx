@@ -93,7 +93,7 @@ export default function ExperienceTimeline({ roles }) {
               <br />
               for a brighter tomorrow <span aria-hidden="true">♡</span>
             </p>
-            <img src={exploreMoreStamp} alt="" aria-hidden="true" className="w-20 h-auto rotate-6 shrink-0" />
+            <img src={exploreMoreStamp} alt="" aria-hidden="true" className="w-40 xl:w-44 h-auto rotate-6 shrink-0" />
           </div>
         )}
         <motion.div key={selected} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}>
